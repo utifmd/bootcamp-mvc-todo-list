@@ -9,12 +9,16 @@ switch (commands) {
         TodoController.show()
         break;
     case "add":
+        TodoController.add(params)
         break;
     case "delete":
+        TodoController.delete(params)
         break;
     case "edit":
+        TodoController.edit(params)
         break;
     case "changeStatus":
+        TodoController.edit
         break;
     case "help":
         MainController.help()

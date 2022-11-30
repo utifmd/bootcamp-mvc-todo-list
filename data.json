@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "task": "Belajar Javascript",
+        "status": true
+    },
+    {
+        "id": 2,
+        "task": "Explore OOP",
+        "status": false
+    }
+]

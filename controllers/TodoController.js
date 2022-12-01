@@ -17,7 +17,7 @@ class TodoController {
         TodoModel.putAllList(todos)
         MainView.message(`${todo.id} has been saved!`)
     }
-    static edit([taskId, task]){
+    static edit([taskId, task, toggle]){
         let todos = TodoModel.getAllList()
         let todo = todos.find(({id}) => parseInt(taskId) === parseInt(id))
         if(!todo) {
@@ -25,10 +25,13 @@ class TodoController {
             return
         }
         todos = todos.map(mTodo => {
-            if (parseInt(taskId) === parseInt(mTodo.id)){
-                return new Todo(mTodo.id, task, mTodo.status, mTodo.createdAt, new Date())
-            } else 
-                return mTodo
+            if (parseInt(taskId) !== parseInt(mTodo.id)) return mTodo
+            if (toggle) mTodo.status = !mTodo.status
+            if (task) mTodo.task = task
+
+            mTodo.updatedAt = new Date()
+            
+            return mTodo
         })
         TodoModel.putAllList(todos)
         MainView.message(`${taskId} has been updated!`)

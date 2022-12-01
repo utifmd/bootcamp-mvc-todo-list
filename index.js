@@ -18,7 +18,7 @@ switch (commands) {
         TodoController.edit(params)
         break;
     case "changeStatus":
-        TodoController.edit
+        TodoController.edit([params[0], null, "toggle"])
         break;
     case "help":
         MainController.help()
